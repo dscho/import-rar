@@ -12,11 +12,11 @@
 	</parent>
 
 	<groupId>sc.fiji</groupId>
-	<artifactId>Process_Pixels</artifactId>
-	<version>1.0.0</version>
+	<artifactId>Import_RAR</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 
-	<name>plugins/Process_Pixels.jar</name>
-	<description>A Maven project implementing an ImageJ 1.x plugin</description>
+	<name>plugins/Import_RAR.jar</name>
+	<description>An ImageJ 1.x plugin to import .jpg from a .rar or .cbr file</description>
 
 	<dependencies>
 		<dependency>
@@ -24,7 +24,32 @@
 			<artifactId>ij</artifactId>
 			<version>${imagej1.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>de.innosystec</groupId>
+			<artifactId>java-unrar</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>Import_RAR</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<developers>
 		<developer>
@@ -55,10 +80,10 @@
 	</repositories>
 
 	<scm>
-		<connection>scm:git:git://github.com/imagej/minimal-ij1-plugin</connection>
-		<developerConnection>scm:git:git@github.com:imagej/minimal-ij1-plugin</developerConnection>
+		<connection>scm:git:git://github.com/dscho/import-rar</connection>
+		<developerConnection>scm:git:git@github.com:dscho/import-rar</developerConnection>
 		<tag>HEAD</tag>
-		<url>https://github.com/imagej/minimal-ij1-plugin</url>
+		<url>https://github.com/dscho/import-rar</url>
 	</scm>
 
 </project>
